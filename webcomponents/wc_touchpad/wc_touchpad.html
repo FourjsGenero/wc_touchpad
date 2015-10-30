@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+		<meta Http-Equiv="Cache-Control" content="no-cache"/>
+		<meta Http-Equiv="Pragma" content="no-cache"/>
+		<meta Http-Equiv="Expires" content="0"/>
+     <script language="JavaScript">
+         // This function is called  when the user click on an area of the image
+         // 
+         execAction = function(val) {
+         // passes a value back to the 4gl variable and triggers an action
+            gICAPI.SetFocus();
+            gICAPI.SetData(val);
+            gICAPI.Action('touchpad_clicked');    
+         }
+         
+         // This function is called by the Genero Client Container
+         // so the web component can initialize itself and initialize
+         // the gICAPI handlers
+         onICHostReady = function(version) {
+            if ( version != 1.0 )
+               alert('Invalid API version');
+         
+             // Called by webcompnent frontcall to alter the HTML of the
+            // document
+            setById = function(id, value) {
+                document.getElementById(id).innerHTML=value;
+            }
+
+         
+            // When the user click on the document we ask the DVM to
+            // get the focus
+            askFocus = function() {
+               gICAPI.SetFocus();
+            }
+         }
+      </script>
+   </head>
+
+
+<body id="touchpad_body">
+</body>
+</html>
+
+

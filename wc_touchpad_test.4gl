@@ -8,7 +8,8 @@ END RECORD
 DEFINE l_mode STRING
 
     CLOSE WINDOW SCREEN
-    OPEN WINDOW w WITH FORM "wc_touchpad_test"
+    CALL ui.Interface.loadStyles("wc_touchpad_test")
+    OPEN WINDOW w WITH FORM "wc_touchpad_test" ATTRIBUTES(STYLE="touchpad")
 
     WHILE TRUE
         MENU "" ATTRIBUTES(STYLE="dialog", COMMENT="Select Touchpad Example")

@@ -53,6 +53,7 @@
         <File filePath="webcomponents/wc_touchpad/wc_touchpad.html"/>
       </VirtualFolder>
       <File filePath="wc_touchpad_test.4gl"/>
+      <File filePath="wc_touchpad_test.4st"/>
       <File filePath="wc_touchpad_test.per"/>
     </Application>
   </Group>

@@ -72,6 +72,13 @@ END FUNCTION
 
 
 
+FUNCTION html_append(txt)
+DEFINE txt STRING
+    CALL touchpad_html.append(txt)
+END FUNCTION
+
+
+
 FUNCTION html_send(fieldname)
 DEFINE fieldname STRING
 DEFINE l_result STRING

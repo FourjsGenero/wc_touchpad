@@ -19,6 +19,8 @@ DEFINE l_mode STRING
                 LET l_mode = "key"
             ON ACTION splash ATTRIBUTES(TEXT="Splash", COMMENT="Tap and Go example")
                 LET l_mode = "splash"
+            ON ACTION html ATTRIBUTES(TEXT="HTML", COMMENT="Raw HTML example")
+                LET l_mode = "html"
             ON ACTION exit ATTRIBUTES(TEXT="Exit")
                 LET l_mode = "exit"
             ON ACTION close
@@ -73,6 +75,11 @@ DEFINE l_mode STRING
                     WHEN "splash"
                         CALL wc_touchpad.init()
                         CALL wc_touchpad.image_add(0,0,100,100,wc_image("splash_iphone.jpg"),"Splash")
+                        CALL wc_touchpad.html_send("formonly.touchpad")
+
+                    WHEN "html"
+                        CALL wc_touchpad.init()
+                        CALL wc_touchpad.html_append("This text has <b>bold</b> and <i>italics</i> and triggers a 4gl <a href=\"javascript:execAction('whatever you want it to be')\">action</a>")
                         CALL wc_touchpad.html_send("formonly.touchpad")
                 END CASE
                 

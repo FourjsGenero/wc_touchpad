@@ -8,11 +8,11 @@ The example shows 4 possibilities
 3. Splash - Shows how this can be used to create a touch screen where you tap to continue.  NOTE: Since the introduction of ACTION attribute to IMAGE I would use that rather than a webcomponent
 4. HTML - Raw HTML text that includes an <a> tag that triggers a 4gl action
  
-When you run the examples, note what appears in the MESSAGE panel when you click on something inside the webcomponent, this is showing that the 4gl action is triggered with the webcomponent variable being set to a particular value
+When you run the examples, note what appears in the MESSAGE panel when you click on something inside the webcomponent, this is showing that the 4gl action is triggered with the webcomponent variable being set to a particular value corresponding to what you clicked on.
 
 The example has one action, the code coould conceivably call different actions by altering execAction to have an extra parameter that is the name of the aciton to trigger.
 
 
 
 
-TODO: Verify legality of Product images.
+TODO: Verify legality of Product images.  Where did I get them from?

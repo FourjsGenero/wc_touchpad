@@ -72,7 +72,7 @@ DEFINE l_mode STRING
                         CALL wc_touchpad.text_add2grid(3,4,1,1,".","decimal")
                         CALL wc_touchpad.html_send("formonly.touchpad")
 
-                    WHEN "splash"
+                    WHEN "splash" -- for this example, since 3.0 you can use actiona ttribute on image which would do same thing more simply
                         CALL wc_touchpad.init()
                         CALL wc_touchpad.image_add(0,0,100,100,wc_image("splash_iphone.jpg"),"Splash")
                         CALL wc_touchpad.html_send("formonly.touchpad")
@@ -85,6 +85,9 @@ DEFINE l_mode STRING
                 
             ON ACTION touchpad_clicked ATTRIBUTES(DEFAULTVIEW=NO)
                 MESSAGE SFMT("Touchpad touched, value=%1", l_touchpad.touchpad)
+                IF l_mode = "splash" THEN -- added this in case it is confusing sayin image says tap tp continue
+                    EXIT INPUT
+                END IF
             ON ACTION close
                 EXIT INPUT
         END INPUT

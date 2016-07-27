@@ -21,6 +21,8 @@ DEFINE l_mode STRING
                 LET l_mode = "splash"
             ON ACTION html ATTRIBUTES(TEXT="HTML", COMMENT="Raw HTML example")
                 LET l_mode = "html"
+            ON ACTION class ATTRIBUTES(TEXT="Class", COMMENT="Example using class to do hover effect")
+                LET l_mode = "class"
             ON ACTION exit ATTRIBUTES(TEXT="Exit")
                 LET l_mode = "exit"
             ON ACTION close
@@ -80,6 +82,17 @@ DEFINE l_mode STRING
                     WHEN "html"
                         CALL wc_touchpad.init()
                         CALL wc_touchpad.html_append("This text has <b>bold</b> and <i>italics</i> and triggers a 4gl <a href=\"javascript:execAction('whatever you want it to be')\">action</a>")
+                        CALL wc_touchpad.html_send("formonly.touchpad")
+
+                    WHEN "class"
+                        -- Define the size
+                        CALL wc_touchpad.init_grid(3,1)
+                        CALL wc_touchpad.img_class_set("enlarge")
+
+                        -- Define the images, X,Y,width,height, image, return value
+                        CALL wc_touchpad.image_add2grid(1,1,1,1,wc_image("largecoke.jpg"),"Coke")
+                        CALL wc_touchpad.image_add2grid(2,1,1,1,wc_image("fanta.jpg"),"Fanta")
+                        CALL wc_touchpad.image_add2grid(3,1,1,1,wc_image("sprite_zero.jpg"),"Sprite")
                         CALL wc_touchpad.html_send("formonly.touchpad")
                 END CASE
                 

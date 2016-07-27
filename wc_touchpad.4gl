@@ -5,12 +5,14 @@ DEFINE touchpad_size RECORD
     columns INTEGER,
     rows INTEGER
 END RECORD
+DEFINE img_class STRING
 
 
 
 FUNCTION init()
     LET touchpad_html = base.StringBuffer.create()
     INITIALIZE touchpad_size.* TO NULL
+    INITIALIZE img_class TO NULL
 END FUNCTION
 
 
@@ -28,7 +30,7 @@ FUNCTION image_add(top, left, width, height, image, value)
 DEFINE top, left, width, height DECIMAL(11,2)
 DEFINE image, value STRING
 
-    CALL touchpad_html.append(SFMT("<div style=\"position: absolute; left: %1%%; top: %2%%; height: %3%%; width: %4%% \"><img src=\"%5\" height=\"100%%\" width=\"100%%\"  onclick=\"execAction('%6')\" /></div>", left USING "##&.&&", top USING "##&.&&",height USING "##&.&&", width USING "##&.&&", image, value))
+    CALL touchpad_html.append(SFMT("<div style=\"position: absolute; left: %1%%; top: %2%%; height: %3%%; width: %4%% \"><img class=\"%7\" src=\"%5\" height=\"100%%\" width=\"100%%\"  onclick=\"execAction('%6')\" /></div>", left USING "##&.&&", top USING "##&.&&",height USING "##&.&&", width USING "##&.&&", image, value, img_class))
 END FUNCTION
 
 
@@ -84,4 +86,11 @@ DEFINE fieldname STRING
 DEFINE l_result STRING
 
     CALL ui.interface.frontcall("webcomponent","call",[fieldname,"setById","touchpad_body",touchpad_html.toString()],l_result)
+END FUNCTION
+
+
+
+FUNCTION img_class_set(class)
+DEFINE class STRING
+    LET img_class = class
 END FUNCTION

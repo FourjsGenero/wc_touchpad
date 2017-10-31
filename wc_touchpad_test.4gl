@@ -17,8 +17,6 @@ DEFINE l_mode STRING
                 LET l_mode = "pos"
             ON ACTION key ATTRIBUTES(TEXT="Keyboard", COMMENT="Full screen keyboard example")
                 LET l_mode = "key"
-            ON ACTION splash ATTRIBUTES(TEXT="Splash", COMMENT="Tap and Go example")
-                LET l_mode = "splash"
             ON ACTION html ATTRIBUTES(TEXT="HTML", COMMENT="Raw HTML example")
                 LET l_mode = "html"
             ON ACTION class ATTRIBUTES(TEXT="Class", COMMENT="Example using class to do hover effect")
@@ -72,11 +70,6 @@ DEFINE l_mode STRING
                         CALL wc_touchpad.text_add2grid(1,4,1,1,"-","minus")
                         CALL wc_touchpad.text_add2grid(2,4,1,1,"0","0")
                         CALL wc_touchpad.text_add2grid(3,4,1,1,".","decimal")
-                        CALL wc_touchpad.html_send("formonly.touchpad")
-
-                    WHEN "splash" -- for this example, since 3.0 you can use actiona ttribute on image which would do same thing more simply
-                        CALL wc_touchpad.init()
-                        CALL wc_touchpad.image_add(0,0,100,100,wc_image("splash_iphone.jpg"),"Splash")
                         CALL wc_touchpad.html_send("formonly.touchpad")
 
                     WHEN "html"

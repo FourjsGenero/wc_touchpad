@@ -109,7 +109,7 @@ END MAIN
 
 FUNCTION wc_image(l_img)
 DEFINE l_img STRING
-
+    #RETURN l_img
     RETURN ui.Interface.filenameToURI(SFMT("img/%1",l_img))
 END FUNCTION
 

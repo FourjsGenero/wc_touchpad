@@ -97,6 +97,7 @@ DEFINE l_mode STRING
             ON ACTION close
                 EXIT INPUT
         END INPUT
+        MESSAGE ""
     END WHILE
 END MAIN
 

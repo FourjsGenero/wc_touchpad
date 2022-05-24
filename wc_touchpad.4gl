@@ -1,4 +1,4 @@
-CONSTANT fudge = 0.3 -- Avoid situation where due to rounding error, line appears
+CONSTANT FUDGE = 0.3 -- Avoid situation where due to rounding error, line appears
 
 DEFINE touchpad_html base.StringBuffer
 DEFINE touchpad_size RECORD
@@ -54,7 +54,7 @@ FUNCTION text_add(top, left, width, height, txt, value)
 DEFINE top, left, width, height DECIMAL(11,2)
 DEFINE txt, value STRING
 
-    CALL touchpad_html.append(SFMT("<div style=\"position: absolute;  display: table; overflow: hidden; padding: 5px; background-color: #EEEEEE; border-width:2px; border-style:inset; border-radius:10px; left: %1%%; top: %2%%; height: %3%%; width: %4%% \"  onclick=\"execAction('%6')\" ><div style=\"text-align: center; vertical-align: middle; display: table-cell; font-size:40; \">%5</div></div>", left USING "##&.&&", top USING "##&.&&",height USING "##&.&&", width USING "##&.&&", txt, value))
+    CALL touchpad_html.append(SFMT("<div style=\"position: absolute;  display: table; overflow: hidden; margin: 5px; background-color: #EEEEEE; border-width:2px; border-style:solid; border-radius:10px; left: %1%%; top: %2%%; height: %3%%; width: %4%% \"  onclick=\"execAction('%6')\" ><div style=\"text-align: center; vertical-align: middle; display: table-cell; font-size:40; \">%5</div></div>", left USING "##&.&&", top USING "##&.&&",height USING "##&.&&", width USING "##&.&&", txt, value))
 END FUNCTION
 
 
